@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Cinemachine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     private InputManager inputManager;
     private Transform cameraTransform;
 
+
+    [SerializeField] private float BobbingEffectSpeed = 10f;
+    [SerializeField] private float BobbingEffectAmount = 10f;
+    [SerializeField] private Transform EyesOfPlayer;
+    private float sinTime;
+    [SerializeField] private Transform Vcam;
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -49,5 +55,24 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        BlobbingEffect();
+
+
     }
+
+
+
+
+    private void BlobbingEffect()
+    {
+        sinTime += Time.deltaTime * BobbingEffectSpeed;
+        float sinAmountY = Mathf.Sin(sinTime) * BobbingEffectAmount;  
+        EyesOfPlayer.localPosition += new Vector3(0, sinAmountY, 0);
+        Debug.Log("sinAmountY: " + sinAmountY);
+
+    }
+
+
+
 }

@@ -10,8 +10,10 @@ public class CinemachinePOVExtension : CinemachineExtension
 
     [SerializeField] private float clampAngel = 80f;
 
+    [SerializeField] private float EffectSpeed = 10f;
 
-
+    [SerializeField] private float WalkingEffectAmount = 10f;
+    private float sinTime;
 
     protected override void Awake()
     {
@@ -29,8 +31,17 @@ public class CinemachinePOVExtension : CinemachineExtension
                 Vector2 deltaInput = _InputManager.getMouseDelta();
                 StartingRotation.x += deltaInput.x *horizontalSpeed * Time.deltaTime;
                 StartingRotation.y += deltaInput.y * verticallSpeed *Time.deltaTime;
+
+                if(_InputManager.getPlayerMovement().magnitude > new Vector2(0, 0).magnitude)
+                {
+                    sinTime += Time.deltaTime * EffectSpeed;
+                    StartingRotation.z = Mathf.Sin(sinTime) * WalkingEffectAmount;
+                }
+
+
+
                 StartingRotation.y = Mathf.Clamp(StartingRotation.y, -clampAngel, clampAngel);
-                state.RawOrientation = Quaternion.Euler(-StartingRotation.y, StartingRotation.x, 0f);
+                state.RawOrientation = Quaternion.Euler(-StartingRotation.y, StartingRotation.x, StartingRotation.z);
             }
         }
     }
