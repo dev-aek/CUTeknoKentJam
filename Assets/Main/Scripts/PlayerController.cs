@@ -27,12 +27,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform EyesOfPlayer;
     private float sinTime;
     [SerializeField] private Transform Vcam;
+
+
+    [SerializeField] private AudioClip[] footstepSounds; // List of footstep sounds
+    private AudioSource audioSource; // AudioSource component to play sounds
+    private float footstepTimer;
+    [SerializeField] private float footstepInterval = 0.5f; // Time between footstep sounds
+
+
+
     private void Start()
     {
         inputManager = InputManager.Instance;
         controller = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
         initialSpeed = playerSpeed;
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Update()
@@ -64,6 +74,18 @@ public class PlayerController : MonoBehaviour
         //}
 
         // Changes the height position of the player..
+
+        if (move != Vector3.zero && groundedPlayer)
+        {
+            footstepTimer += Time.deltaTime;
+            if (footstepTimer >= footstepInterval)
+            {
+                PlayFootstepSound();
+                footstepTimer = 0f;
+            }
+        }
+
+
         if (inputManager.PlayerJumpThisFrame() && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
@@ -88,6 +110,17 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+
+    private void PlayFootstepSound()
+    {
+        if (footstepSounds.Length > 0)
+        {
+            AudioClip footstepSound = footstepSounds[Random.Range(0, footstepSounds.Length)];
+            audioSource.PlayOneShot(footstepSound);
+        }
+    }
+
 
 
     private void OnTriggerEnter(Collider other)
