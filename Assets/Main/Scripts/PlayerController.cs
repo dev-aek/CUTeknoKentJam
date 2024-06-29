@@ -90,5 +90,13 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out FrameFramePath framePath))
+        {
+            Debug.Log("triggerd");
+            framePath.PathStarer();
+        }
+    }
 
 }
