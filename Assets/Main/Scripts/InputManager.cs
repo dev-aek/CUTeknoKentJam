@@ -50,4 +50,11 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.Jump.triggered;
     }
 
+    public bool PlayerRunThisFrame()
+    {
+        return playerControls.Player.Run.IsPressed();
+    }
+
+
+
 }
