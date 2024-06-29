@@ -14,8 +14,7 @@ public class FrameFramePath : MonoBehaviour
 
     private IEnumerator LoopActivationDeactivation()
     {
-        while (true)
-        {
+        
             // Nesneleri tek tek aç
             foreach (GameObject obj in objectsToActivate)
             {
@@ -29,7 +28,7 @@ public class FrameFramePath : MonoBehaviour
                 yield return new WaitForSeconds(delay);
                 obj.SetActive(false);
             }
-        }
+        StartCoroutine(LoopActivationDeactivation());
     }
 
     public void PathStarer()
