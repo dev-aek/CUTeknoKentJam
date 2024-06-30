@@ -23,9 +23,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource[] m_Effects;
     [SerializeField] private AudioSource[] m_Musics;
-    [SerializeField] public GameObject m_Black;
-    [SerializeField] public GameObject m_MainCamera;
-    [SerializeField] public GameObject m_ShockCamera;
+
     public void PlayEffect(int i)
     {
         if (i < m_Effects.Length)
