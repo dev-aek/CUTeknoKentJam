@@ -7,10 +7,12 @@ public class FrameFramePath : MonoBehaviour
 {
     public List<GameObject> objectsToActivate;
     public float delay = 0.5f;
+    private SoundManager soundManager;
 
     private void Start()
     {
         //StartCoroutine(LoopActivationDeactivation());
+        soundManager = SoundManager.Instance;
     }
 
     private IEnumerator LoopActivationDeactivation()
@@ -68,5 +70,11 @@ public class FrameFramePath : MonoBehaviour
     public void PathStarer()
     {
         StartCoroutine(LoopActivationDeactivation());
+        if (gameObject.CompareTag("FirstTrigger"))
+        {
+            soundManager.PlayEffect(2);
+
+        }
+        else soundManager.PlayEffect(0);
     }
 }

@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; private set; }
 
     [SerializeField] private float _delay = 10f;
+    private bool firstTime = true;
+    private float timer = 3f;
 
     private void Awake()
     {
@@ -69,7 +71,21 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(RandomEffectPlay());
+        PlayEffect(3);
+
+    }
+
+    private void Update()
+    {
+
+
+        timer -= Time.deltaTime;
+        if (timer < 0 && firstTime)
+        {
+            StartCoroutine(RandomEffectPlay());
+            firstTime = false;
+            Debug.Log("firstTime");
+        }
     }
 
 }
