@@ -567,7 +567,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &74464996
 Transform:
@@ -1072,7 +1072,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.33
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &307610853
 Transform:
@@ -4235,13 +4235,17 @@ PrefabInstance:
       propertyPath: m_Timeline
       value: 
       objectReference: {fileID: 1411982574}
+    - target: {fileID: 1667362492320247656, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7035955064961439077, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_Name
       value: ChGirl (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7705495645830991839, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 392.48697
+      value: 393.03
       objectReference: {fileID: 0}
     - target: {fileID: 7705495645830991839, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4249,7 +4253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705495645830991839, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 413.30115
+      value: 412.16
       objectReference: {fileID: 0}
     - target: {fileID: 7705495645830991839, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4374,7 +4378,7 @@ MonoBehaviour:
   clampAngel: 80
   EffectSpeed: 5
   WalkingEffectAmount: 0.3
-  RunMultpl: 0
+  RunMultpl: 2
 --- !u!1 &1411982574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4690,7 +4694,7 @@ Transform:
   m_GameObject: {fileID: 1572523536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 449.5735, y: 0.28256464, z: 288.54}
+  m_LocalPosition: {x: 449.5735, y: 0.28256464, z: 283.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6683,7 +6687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5201594673504140470, guid: 62506a6e42ad09341a68999f81c83bf3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7275,21 +7279,25 @@ PrefabInstance:
       propertyPath: m_Timeline
       value: 
       objectReference: {fileID: 1411982574}
+    - target: {fileID: 1667362492320247656, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
+      propertyPath: m_Radius
+      value: 3.19
+      objectReference: {fileID: 0}
     - target: {fileID: 7035955064961439077, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_Name
       value: ChGirl
       objectReference: {fileID: 0}
     - target: {fileID: 7705495645830991839, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 383.2987
+      value: 384.849
       objectReference: {fileID: 0}
     - target: {fileID: 7705495645830991839, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7000623
+      value: 1.682
       objectReference: {fileID: 0}
     - target: {fileID: 7705495645830991839, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 325.10617
+      value: 323.80023
       objectReference: {fileID: 0}
     - target: {fileID: 7705495645830991839, guid: bb67ac87abc2caf4f83d7990d352e40c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7340,11 +7348,11 @@ SceneRoots:
   - {fileID: 1572523539}
   - {fileID: 180235153}
   - {fileID: 307610853}
+  - {fileID: 5997336406342727382}
   - {fileID: 1539911046}
   - {fileID: 74464996}
-  - {fileID: 1633057770}
-  - {fileID: 5997336406342727382}
   - {fileID: 1356081038}
+  - {fileID: 1633057770}
   - {fileID: 1733081790}
   - {fileID: 518723653}
   - {fileID: 1701151310}

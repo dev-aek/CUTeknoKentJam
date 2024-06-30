@@ -25,12 +25,16 @@ public class FrameFramePath : MonoBehaviour
 
         for (int i = 0; i < objectsToActivate.Count; i++)
         {
-            objectsToActivate[i].SetActive(true);
             if (i>0)
             {
                 Vector3 pos = objectsToActivate[i].transform.position;
                 objectsToActivate[i].transform.position = objectsToActivate[i - 1].transform.position;
+                objectsToActivate[i].SetActive(true);
                 objectsToActivate[i].transform.DOMove(pos, delay-0.05f);
+            }
+            else
+            {
+                objectsToActivate[i].SetActive(true);
             }
             yield return new WaitForSeconds(delay);
         }

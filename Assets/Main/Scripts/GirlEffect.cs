@@ -22,7 +22,7 @@ public class GirlEffect : MonoBehaviour
             }
             else if (girlType == GirlType.Final)
             {
-                //Final Scene
+                SceneManager.LoadScene("Final");
             }
         }
     }
