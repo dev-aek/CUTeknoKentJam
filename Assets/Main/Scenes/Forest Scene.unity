@@ -547,7 +547,7 @@ MonoBehaviour:
   - {fileID: 745277853}
   - {fileID: 659471982}
   - {fileID: 1902814515}
-  delay: 0.1
+  delay: 0.3
 --- !u!135 &74464995
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   - {fileID: 1635351802}
   - {fileID: 1942177721}
   - {fileID: 2036122690}
-  delay: 0.1
+  delay: 0.3
 --- !u!135 &307610852
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4374,6 +4374,7 @@ MonoBehaviour:
   clampAngel: 80
   EffectSpeed: 5
   WalkingEffectAmount: 0.3
+  RunMultpl: 0
 --- !u!1 &1411982574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4658,7 +4659,7 @@ MonoBehaviour:
   - {fileID: 1965706404}
   - {fileID: 339010585}
   - {fileID: 471707864}
-  delay: 0.1
+  delay: 0.3
 --- !u!65 &1572523538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4778,6 +4779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77df45fa64421e147b347e0db059ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _delay: 10
   m_Effects:
   - {fileID: 1647901130}
   - {fileID: 618124293}
