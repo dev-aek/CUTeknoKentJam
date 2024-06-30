@@ -11,14 +11,24 @@ public class CinemachinePOVExtension : CinemachineExtension
     [SerializeField] private float clampAngel = 80f;
 
     [SerializeField] private float EffectSpeed = 10f;
+    private float initialEffectSpeed;
 
-    [SerializeField] private float WalkingEffectAmount = 10f;
+    [SerializeField] private float WalkingEffectAmount = 0.3f;
+    private float initialWalkingEffectAmount;
+    [SerializeField] private float RunMultpl;
     private float sinTime;
 
     protected override void Awake()
     {
         _InputManager = InputManager.Instance;
         base.Awake();
+    }
+
+
+    private void Start()
+    {
+        initialWalkingEffectAmount = WalkingEffectAmount;
+        initialEffectSpeed = EffectSpeed;
     }
 
     protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
@@ -34,6 +44,18 @@ public class CinemachinePOVExtension : CinemachineExtension
 
                 if(_InputManager.getPlayerMovement().magnitude > new Vector2(0, 0).magnitude)
                 {
+                    if (_InputManager.PlayerRunThisFrame())
+                    {
+                        EffectSpeed *= RunMultpl;
+                        WalkingEffectAmount *= RunMultpl;
+                        EffectSpeed = Mathf.Clamp(EffectSpeed, initialEffectSpeed, RunMultpl*initialEffectSpeed);
+                        WalkingEffectAmount = Mathf.Clamp(WalkingEffectAmount, initialWalkingEffectAmount, RunMultpl * initialWalkingEffectAmount);
+                    }
+                    else
+                    {
+                        EffectSpeed = 5;
+                        WalkingEffectAmount = initialWalkingEffectAmount;
+                    }
                     sinTime += Time.deltaTime * EffectSpeed;
                     StartingRotation.z = Mathf.Sin(sinTime) * WalkingEffectAmount;
                 }

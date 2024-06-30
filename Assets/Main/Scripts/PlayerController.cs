@@ -29,11 +29,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform Vcam;
 
 
-    [SerializeField] private AudioClip[] footstepSounds; // List of footstep sounds
-    private AudioSource audioSource; // AudioSource component to play sounds
+    [SerializeField] private AudioClip[] footstepSounds; 
+    private AudioSource audioSource; 
     private float footstepTimer;
-    [SerializeField] private float footstepInterval = 0.5f; // Time between footstep sounds
-
+    [SerializeField] private float footstepInterval = 0.5f; 
+    [SerializeField] private float footstepVolume = 0.5f;
 
 
     private void Start()
@@ -68,12 +68,6 @@ public class PlayerController : MonoBehaviour
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        //if (move != Vector3.zero)
-        //{
-        //    gameObject.transform.forward = move;
-        //}
-
-        // Changes the height position of the player..
 
         if (move != Vector3.zero && groundedPlayer)
         {
@@ -117,7 +111,7 @@ public class PlayerController : MonoBehaviour
         if (footstepSounds.Length > 0)
         {
             AudioClip footstepSound = footstepSounds[Random.Range(0, footstepSounds.Length)];
-            audioSource.PlayOneShot(footstepSound);
+            audioSource.PlayOneShot(footstepSound, footstepVolume);
         }
     }
 

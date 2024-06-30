@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     #region Instance
     public static SoundManager Instance { get; private set; }
 
+    [SerializeField] private float _delay = 10f;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -55,5 +57,21 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+
+
+    private IEnumerator RandomEffectPlay()
+    {
+        int i = Random.Range(0, 4);
+        PlayEffect(i);
+        yield return new WaitForSeconds(_delay);
+        StartCoroutine(RandomEffectPlay());
+    }
+
+
+
+    private void Start()
+    {
+        StartCoroutine(RandomEffectPlay());
+    }
 
 }
